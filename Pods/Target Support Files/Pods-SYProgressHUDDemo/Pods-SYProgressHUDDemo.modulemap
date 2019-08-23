@@ -1,0 +1,6 @@
+framework module Pods_SYProgressHUDDemo {
+  umbrella header "Pods-SYProgressHUDDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
