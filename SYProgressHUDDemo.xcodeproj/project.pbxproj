@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -87,9 +87,9 @@
 		80465506230F956700744452 /* SYProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				80465509230F956700744452 /* SYProgressHUD.h */,
 				80465507230F956700744452 /* SYProgressHUD.m */,
 				80465508230F956700744452 /* images.bundle */,
-				80465509230F956700744452 /* SYProgressHUD.h */,
 			);
 			path = SYProgressHUD;
 			sourceTree = "<group>";
@@ -108,7 +108,6 @@
 				745E6ABD3D902B436564FA93 /* Pods-SYProgressHUDDemo.debug.xcconfig */,
 				71F81D3F79EE416053B0DBD1 /* Pods-SYProgressHUDDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

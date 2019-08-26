@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
  
   s.name         = "SYProgressHUD"
-  s.version      = "0.1"
+  s.version      = "0.2"
   s.summary      = "基于MBProgressHUD的封装"
   s.description  = "easy use SYProgressHUD on iOS，use by readme"
  

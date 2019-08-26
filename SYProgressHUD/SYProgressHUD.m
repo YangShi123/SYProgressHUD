@@ -127,9 +127,10 @@
 
 - (UIImage *)imageWithResourceName:(NSString *)name
 {
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"images" ofType:@"bundle"];
-    NSBundle * bundle = [NSBundle bundleWithPath:path];
-    UIImage * image = [UIImage imageWithContentsOfFile:[bundle pathForResource:name ofType:@"png"]];
+    NSBundle * bundle = [NSBundle bundleForClass:[SYProgressHUD class]];
+    NSURL * url = [bundle URLForResource:@"images" withExtension:@"bundle"];
+    NSBundle * imageBundle = [NSBundle bundleWithURL:url];
+    UIImage * image = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:name ofType:@"png"]];
     return image;
 }
 
