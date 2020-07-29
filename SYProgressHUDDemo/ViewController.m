@@ -73,6 +73,9 @@
         {
             [SYProgressHUD showSuccessWithMsg:@"加载成功!"];
             [SYProgressHUD hiddenDelay:2.0];
+            [SYProgressHUD shareInstance].hud.completionBlock = ^{
+                NSLog(@"123");
+            };
         }
             break;
         case 5:

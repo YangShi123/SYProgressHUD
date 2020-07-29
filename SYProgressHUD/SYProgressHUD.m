@@ -25,7 +25,7 @@
 {
     if ([SYProgressHUD shareInstance].hud != nil)
     {
-        [[SYProgressHUD shareInstance].hud hideAnimated:YES];
+        [[SYProgressHUD shareInstance].hud removeFromSuperview];
     }
     [SYProgressHUD shareInstance].hud = [MBProgressHUD showHUDAddedTo:view ? view : [UIApplication sharedApplication].delegate.window animated:YES];
     [SYProgressHUD shareInstance].hud.label.text = msg;
@@ -34,8 +34,10 @@
     if (mode == MBProgressHUDModeCustomView) {
         [SYProgressHUD shareInstance].hud.customView = imageView;
     }
-    [SYProgressHUD shareInstance].hud.bezelView.backgroundColor = [UIColor blackColor];
     [SYProgressHUD shareInstance].hud.contentColor = [UIColor whiteColor];
+    [SYProgressHUD shareInstance].hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    [SYProgressHUD shareInstance].hud.bezelView.color = [UIColor blackColor];
+    [SYProgressHUD shareInstance].hud.animationType = MBProgressHUDAnimationZoom;
     [SYProgressHUD shareInstance].hud.label.textColor = [UIColor whiteColor];
     [SYProgressHUD shareInstance].hud.removeFromSuperViewOnHide = YES;
     [SYProgressHUD shareInstance].hud.margin = 15;
@@ -108,21 +110,9 @@
     [[SYProgressHUD shareInstance].hud hideAnimated:YES];
 }
 
-+ (void)hiddenWithCompletion:(MBProgressHUDCompletionBlock)completion
-{
-    [[SYProgressHUD shareInstance].hud hideAnimated:YES];
-    !completion ?:completion();
-}
-
 + (void)hiddenDelay:(NSTimeInterval)delay
 {
     [[SYProgressHUD shareInstance].hud hideAnimated:YES afterDelay:delay];
-}
-
-+ (void)hiddenDelay:(NSTimeInterval)delay completion:(MBProgressHUDCompletionBlock)completion
-{
-    [[SYProgressHUD shareInstance].hud hideAnimated:YES afterDelay:delay];
-    !completion ?:completion();
 }
 
 - (UIImage *)imageWithResourceName:(NSString *)name

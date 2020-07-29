@@ -74,19 +74,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)hidden;
 
 /**
- 移除附带完成回调
- */
-+ (void)hiddenWithCompletion:(MBProgressHUDCompletionBlock)completion;
-
-/**
  在多少时间后移除
  */
 + (void)hiddenDelay:(NSTimeInterval)delay;
-
-/**
- 在多少时间后移除附带完成回调
- */
-+ (void)hiddenDelay:(NSTimeInterval)delay completion:(MBProgressHUDCompletionBlock)completion;
 
 @end
 
