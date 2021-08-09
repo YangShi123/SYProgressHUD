@@ -7,9 +7,15 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+HUD.showIndicator("这是一个菊花弹窗", view: nil){ //TODO 弹窗结束闭包 }
 
-## Requirements
+HUD.showMsg("这是一个纯文字弹窗", view: nil){ //TODO 弹窗结束闭包 }
+
+HUD.showSuccess("这是一个成功弹窗", view: nil){ //TODO 弹窗结束闭包 }
+
+HUD.showFailed("这是一个失败弹窗", view: nil){ //TODO 弹窗结束闭包 }
+
+HUD.showProgress("设置一个进度弹窗", progress: progress, view: nil){ //TODO 弹窗结束闭包 }
 
 ## Installation
 
@@ -22,8 +28,4 @@ pod 'SYProgressHUD'
 
 ## Author
 
-石头羊子, shiyawn@163.com
-
-## License
-
-SYProgressHUD is available under the MIT license. See the LICENSE file for more info.
+石头羊子, 421111472@qq.com
