@@ -34,12 +34,14 @@ public class SYProgressHUD {
                       progress: Float = 0,
                       autoHidden: Bool = true,
                       completion: (() -> Void)? = nil) {
-        if hud != nil {
+        if hud != nil && mode != MBProgressHUDMode.annularDeterminate {
             hud?.removeFromSuperview()
             hud = nil
         }
-        hud = MBProgressHUD.showAdded(to: view ?? UIApplication.shared.windows.last!,
-                                      animated: true)
+        if hud == nil {
+            hud = MBProgressHUD.showAdded(to: view ?? UIApplication.shared.windows.last!,
+                                          animated: true)
+        }
         hud?.label.numberOfLines = 0
         hud?.contentColor = .white
         hud?.bezelView.style = .solidColor
@@ -88,7 +90,7 @@ extension SYProgressHUD {
         let bundle = Bundle(path: path!)
         let file = bundle?.path(forResource: "success@2x", ofType: "png")
         let image = UIImage(contentsOfFile: file!)?.withRenderingMode(.alwaysOriginal)
-        show(msg, view: view, image: image, completion: completion)
+        show(msg, mode: .customView ,view: view, image: image, completion: completion)
     }
     
     /// 失败hud
@@ -99,7 +101,7 @@ extension SYProgressHUD {
         let bundle = Bundle(path: path!)
         let file = bundle?.path(forResource: "fail@2x", ofType: "png")
         let image = UIImage(contentsOfFile: file!)?.withRenderingMode(.alwaysOriginal)
-        show(msg, view: view, image: image, completion: completion)
+        show(msg, mode: .customView ,view: view, image: image, completion: completion)
     }
     
     /// 进度hud

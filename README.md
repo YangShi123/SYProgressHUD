@@ -22,7 +22,7 @@ pod 'SYProgressHUD'
 
 ## Author
 
-shiyawn@163.com, shiyawn@163.com
+石头羊子, shiyawn@163.com
 
 ## License
 
