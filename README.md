@@ -7,6 +7,9 @@
 
 ## Example
 
+/// 全局统一配置弹窗属性
+HUD.config(afterDelay: 2.0, backgroundColor: .black)
+
 HUD.showIndicator("这是一个菊花弹窗", view: nil){ //TODO 弹窗结束闭包 }
 
 HUD.showMsg("这是一个纯文字弹窗", view: nil){ //TODO 弹窗结束闭包 }
