@@ -8,7 +8,7 @@ import MBProgressHUD
 
 public let HUD = SYProgressHUD.shared
 
-public class SYProgressHUD {
+public class SYProgressHUD : NSObject {
     /// 单例
     public static let shared = SYProgressHUD()
     
@@ -21,9 +21,9 @@ public class SYProgressHUD {
     private var backgroundColor: UIColor = .black
     
     /// 配置hud属性
-    public func config(afterDelay: TimeInterval? = nil,
+    @objc public func config(afterDelay: TimeInterval,
                        backgroundColor: UIColor? = nil) {
-        if afterDelay != nil { self.afterDelay = afterDelay! }
+        self.afterDelay = afterDelay
         if backgroundColor != nil { self.backgroundColor = backgroundColor! }
     }
     
@@ -69,21 +69,21 @@ public class SYProgressHUD {
 
 extension SYProgressHUD {
     /// 文字hud
-    public func showMsg(_ msg: String,
+    @objc public func showMsg(_ msg: String,
                         view: UIView? = nil,
                         completion: (() -> Void)? = nil) {
         show(msg, view: view)
     }
     
     /// 菊花hud
-    public func showIndicator(_ msg: String,
+    @objc public func showIndicator(_ msg: String,
                               view: UIView? = nil,
                               completion: (() -> Void)? = nil) {
         show(msg, mode: .indeterminate, view: view, autoHidden: false, completion: completion)
     }
     
     /// 成功hud
-    public func showSuccess(_ msg: String,
+    @objc public func showSuccess(_ msg: String,
                             view: UIView? = nil,
                             completion: (() -> Void)? = nil) {
         let path = Bundle(for: SYProgressHUD.self).path(forResource: "SYProgressHUD", ofType: "bundle")
@@ -94,7 +94,7 @@ extension SYProgressHUD {
     }
     
     /// 失败hud
-    public func showFailed(_ msg: String,
+    @objc public func showFailed(_ msg: String,
                            view: UIView? = nil,
                            completion: (() -> Void)? = nil) {
         let path = Bundle(for: SYProgressHUD.self).path(forResource: "SYProgressHUD", ofType: "bundle")
@@ -105,7 +105,7 @@ extension SYProgressHUD {
     }
     
     /// 进度hud
-    public func showProgress(_ msg: String,
+    @objc public func showProgress(_ msg: String,
                              progress: Float,
                              view: UIView? = nil,
                              completion: (() -> Void)? = nil) {
@@ -113,7 +113,7 @@ extension SYProgressHUD {
     }
     
     /// 隐藏hud
-    public func hidden() {
+    @objc public func hidden() {
         hide()
     }
 }
